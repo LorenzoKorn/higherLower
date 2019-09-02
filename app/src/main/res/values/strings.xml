@@ -1,9 +1,12 @@
 <resources>
-    <string name="app_name">HigherLower</string>
+    <string name="app_name">Higher Lower Kotlin</string>
     <string name="question">Guess if the next throw is going to be higher, equal or lower</string>
     <string name="dice">dice</string>
     <string name="equal">Equal</string>
     <string name="higher">Higher</string>
     <string name="lower">Lower</string>
-    <string name="last">Last throw:</string>
+    <!-- %d = placeholder for some number -->
+    <string name="last_throw">Last throw:%d</string>
+    <string name="correct">Correct</string>
+    <string name="incorrect">Incorrect</string>
 </resources>
