@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">HigherLower</string>
+    <string name="question">Guess if the next throw is going to be higher, equal or lower</string>
+    <string name="dice">dice</string>
+    <string name="equal">Equal</string>
+    <string name="higher">Higher</string>
+    <string name="lower">Lower</string>
+    <string name="last">Last throw:</string>
 </resources>
