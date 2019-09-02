@@ -2,6 +2,7 @@ package com.example.lorenzo.higherlower
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_higher_lower.*
 
 class HigherLowerActivity : AppCompatActivity() {
@@ -16,6 +17,21 @@ class HigherLowerActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
+        btnLower.setOnClickListener {
+            rollDice()
+            onLowerClick()
+        }
+
+        btnEqual.setOnClickListener {
+            rollDice()
+            onEqualClick()
+        }
+
+        btnHigher.setOnClickListener {
+            rollDice()
+            onHigherClick()
+        }
+
         updateUI()
     }
 
@@ -34,7 +50,49 @@ class HigherLowerActivity : AppCompatActivity() {
         }
     }
 
-    private fun roll() {
-
+    private fun rollDice() {
+        lastThrow = currentThrow
+        // .random didn't work
+        currentThrow = (1..6).shuffled().first()
+        updateUI()
     }
+
+    private fun onLowerClick() {
+        if (currentThrow < lastThrow) {
+            onAnswerCorrect()
+        } else {
+            onAnswerIncorrect()
+        }
+    }
+
+    private fun onEqualClick() {
+        if (currentThrow == lastThrow) {
+            onAnswerCorrect()
+        } else {
+            onAnswerIncorrect()
+        }
+    }
+
+    private fun onHigherClick() {
+        if (currentThrow > lastThrow) {
+            onAnswerCorrect()
+        } else {
+            onAnswerIncorrect()
+        }
+    }
+
+    /**
+     * Displays a successful Toast message.
+     */
+    private fun onAnswerCorrect() {
+        Toast.makeText(this, getString(R.string.correct), Toast.LENGTH_SHORT).show()
+    }
+
+    /**
+     * Displays a incorrect Toast message.
+     */
+    private fun onAnswerIncorrect() {
+        Toast.makeText(this, getString(R.string.incorrect), Toast.LENGTH_SHORT).show()
+    }
+
 }
